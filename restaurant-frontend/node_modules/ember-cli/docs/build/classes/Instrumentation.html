@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Instrumentation - ember-cli</title>
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/yui/3.18.0/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div class="yui3-g">
+        <div id="sidebar" class="yui3-u">
+            <div class="logo">
+              <a href="../index.html">
+                  <img src="https://ember-cli.com/assets/images/ember-cli-logo-small-dark.png">
+              </a>
+            </div>
+            
+            <div id="modules" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Modules</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../modules/ember-cli.html">ember-cli</a>
+                            </li>
+                            <li><a href="../modules/is-lazy-engine.html">is-lazy-engine</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="classes" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Classes</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../classes/Addon.html">Addon</a></li>
+                            <li><a href="../classes/AmdTransformAddon.html">AmdTransformAddon</a></li>
+                            <li><a href="../classes/Blueprint.html">Blueprint</a></li>
+                            <li><a href="../classes/Builder.html">Builder</a></li>
+                            <li><a href="../classes/CLI.html">CLI</a></li>
+                            <li><a href="../classes/Command.html">Command</a></li>
+                            <li><a href="../classes/DefaultPackager.html">DefaultPackager</a></li>
+                            <li><a href="../classes/EmberAddon.html">EmberAddon</a></li>
+                            <li><a href="../classes/EmberApp.html">EmberApp</a></li>
+                            <li><a href="../classes/HardwareInfo.html">HardwareInfo</a></li>
+                            <li><a href="../classes/HistorySupportAddon.html">HistorySupportAddon</a></li>
+                            <li><a href="../classes/Instrumentation.html">Instrumentation</a></li>
+                            <li><a href="../classes/NodeModulesList.html">NodeModulesList</a></li>
+                            <li><a href="../classes/NpmTask.html">NpmTask</a></li>
+                            <li><a href="../classes/PackageInfo.html">PackageInfo</a></li>
+                            <li><a href="../classes/PackageInfoCache.html">PackageInfoCache</a></li>
+                            <li><a href="../classes/PerBundleAddonCache {.html">PerBundleAddonCache {</a></li>
+                            <li><a href="../classes/Project.html">Project</a></li>
+                            <li><a href="../classes/ServeFilesAddon.html">ServeFilesAddon</a></li>
+                            <li><a href="../classes/TestsServerAddon.html">TestsServerAddon</a></li>
+                            <li><a href="../classes/WatcherAddon.html">WatcherAddon</a></li>
+                            <li><a href="../classes/WindowsSymlinkChecker.html">WindowsSymlinkChecker</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div id="sections" class="sidebox">
+              <div class="hd">
+                <h2 class="no-toc">Instrumentation</h2>
+              </div>
+              <div class="bd">
+            
+            
+            
+            
+                  <div><a href="#method-summary">Method Summary</a></div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                  <div><a href="#public-methods">Public Methods</a></div>
+                  <ul>
+                      <li><a href="#method_checkInstallations">checkInstallations</a></li>
+                      <li><a href="#method_findLCAHost">findLCAHost</a></li>
+                      <li><a href="#method_getHostAddonInfo">getHostAddonInfo</a></li>
+                      <li><a href="#method_instantiateAddons">instantiateAddons</a></li>
+                  </ul>
+            
+            
+                  <div><a href="#private-methods">Private Methods</a></div>
+                  <ul>
+                      <li><a href="#method__findNearestBundleHost">_findNearestBundleHost</a></li>
+                      <li><a href="#method__getBundledPackageInfos">_getBundledPackageInfos</a></li>
+                  </ul>
+              </div>
+            </div>
+            
+            
+            
+            <div class="version-info">
+              Version: 3.28.6-lts-3-28-23a0d98b59
+            </div>
+            
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><div class="title">
+    <span class="source-link"><a href="../files/lib_models_instrumentation.js.html#l38"><code>lib&#x2F;models&#x2F;instrumentation.js:38</code></a></span>
+    <h1 class="class-name">Instrumentation</h1>
+</div>
+
+
+
+
+<div class="class-description"><p>An instance of this class is used for invoking the instrumentation
+hooks on addons.</p>
+<p>The instrumentation types currently supported are:</p>
+<ul>
+<li>init</li>
+<li>build</li>
+<li>command</li>
+<li>shutdown</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+  <h2 id="method-summary">Method Summary</h2>
+
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Public Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            public
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method_checkInstallations">checkInstallations</a>( )
+            </div>
+            <div class="short-description">
+              <p>Check if npm and bower installation directories are present, and raise an error message with instructions on how to proceed.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            public
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method_findLCAHost">findLCAHost</a>(engineInstance): EngineAddon | <a href="../classes/EmberApp.html" class="crosslink">EmberApp</a>
+            </div>
+            <div class="short-description">
+              <p>This returns the LCA host for a given engine; we use the associated package info to compute this (see <code>getHostAddonInfo</code> above); this finds the lowest common ancestor that is considered a host amongst <em>all</em> engines by the same name in the project. This function is intended to replace the original behavior in <code>ember-engines</code>.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            public
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method_getHostAddonInfo">getHostAddonInfo</a>(packageInfoForLazyEngine): hostPackageInfo: PackageInfo, hostAndAncestorBundledPackageInfos: Set<PackageInfo>
+            </div>
+            <div class="short-description">
+              <p>This function intends to return a common host for a bundle host (lazy engine). The root package info should be the starting point (i.e., the project's package info). We do this by performing a breadth-first traversal until we find the intended lazy engine (represented as a package-info &amp; the 1st argument passed to this function). As part of the traversal, we keep track of all paths to said engine; then, once we find the intended engine we use this to determine the nearest common host amongst all shortest paths.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            public
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method_instantiateAddons">instantiateAddons</a>(parent, project, a)
+            </div>
+            <div class="short-description">
+              <p>Create instances of a set of "child" addons for a parent addon or project.</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Private Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            private
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method__findNearestBundleHost">_findNearestBundleHost</a>(paths): PackageInfo, PackageInfo[]
+            </div>
+            <div class="short-description">
+              <p>Given a path (calculated as part of <code>getHostAddonInfo</code>), return the correct "bundle host". A bundle host is considered the project or lazy engine.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            private
+            
+            
+          </td>
+          <td>
+            <div class="method-name ">
+              <a href="#method__getBundledPackageInfos">_getBundledPackageInfos</a>(pkgInfoToStartAt): Set<PackageInfo>
+            </div>
+            <div class="short-description">
+              <p>Returns a <code>Set</code> of package-info objects that a given bundle host is <em>directly</em> responsible for bundling (i.e., it excludes other bundle hosts/lazy engines when it encounters these)</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="methods public">
+    <h2 id="public-methods">Public Methods</h2>
+<div class="method item">
+    <div id="method_checkInstallations" class="title">
+        <span class="source-link"><a href="../files/lib_models_installation-checker.js.html#l13"><code>lib&#x2F;models&#x2F;installation-checker.js:13</code></a></span>
+        <h3 class="">
+            public
+            
+            
+            checkInstallations( )
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>Check if npm and bower installation directories are present,
+and raise an error message with instructions on how to proceed.</p>
+<p>If some of these package managers aren't being used in the project
+we just ignore them. Their usage is considered by checking the
+presence of your manifest files: package.json for npm and bower.json for bower.</p>
+</div>
+
+
+
+
+</div>
+<div class="method item">
+    <div id="method_findLCAHost" class="title">
+        <span class="source-link"><a href="../files/lib_models_host-info-cache.js.html#l272"><code>lib&#x2F;models&#x2F;host-info-cache.js:272</code></a></span>
+        <h3 class="">
+            public
+            
+            
+            findLCAHost(engineInstance): EngineAddon | <a href="../classes/EmberApp.html" class="crosslink">EmberApp</a>
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>This returns the LCA host for a given engine; we use the associated package info
+to compute this (see <code>getHostAddonInfo</code> above); this finds the lowest common ancestor
+that is considered a host amongst <em>all</em> engines by the same name in the project. This
+function is intended to replace the original behavior in <code>ember-engines</code>.</p>
+<p>For more info, see the original implementation here:</p>
+<p><a href="https://github.com/ember-engines/ember-engines/blob/master/packages/ember-engines/lib/utils/find-lca-host.js">https://github.com/ember-engines/ember-engines/blob/master/packages/ember-engines/lib/utils/find-lca-host.js</a></p>
+</div>
+
+      <div class="params">
+        <h4>Parameters:</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>engineInstance</td>
+              <td>EngineAddon</td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td> </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="return">
+        <h4>Return:</h4>
+        <div>
+          <span class="return-type">EngineAddon | <a href="../classes/EmberApp.html" class="crosslink">EmberApp</a></span>
+          <span class="return-description"></span>
+        </div>
+      </div>
+
+
+</div>
+<div class="method item">
+    <div id="method_getHostAddonInfo" class="title">
+        <span class="source-link"><a href="../files/lib_models_host-info-cache.js.html#l147"><code>lib&#x2F;models&#x2F;host-info-cache.js:147</code></a></span>
+        <h3 class="">
+            public
+            
+            
+            getHostAddonInfo(packageInfoForLazyEngine): hostPackageInfo: PackageInfo, hostAndAncestorBundledPackageInfos: Set<PackageInfo>
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>This function intends to return a common host for a bundle host (lazy engine). The root
+package info should be the starting point (i.e., the project's package info). We do this
+by performing a breadth-first traversal until we find the intended lazy engine (represented
+as a package-info &amp; the 1st argument passed to this function). As part of the traversal, we keep
+track of all paths to said engine; then, once we find the intended engine we use this to determine
+the nearest common host amongst all shortest paths.</p>
+<p>Some context:</p>
+<p>For a given engine/bundle host, this finds the lowest common ancestor that is considered a
+host amongst <em>all</em> engines by the same name in the project.</p>
+<p>For example, given the following package structure:</p>
+<pre class="code prettyprint"><code> --Project--
+  /      \
+ /        \
+</code></pre>
+<p>Lazy Engine A  <br>
+Addon A
+|
+|
+Lazy Engine B
+/          <br>
+/            <br>
+Lazy Engine A   Lazy Engine C</p>
+<ul>
+<li>The LCA host for Lazy Engine A is the project</li>
+<li>The LCA host for Lazy Engine B is the project</li>
+<li>The LCA host for Lazy Engine C is Lazy Engine B</li>
+</ul>
+<p>This also returns <code>hostAndAncestorBundledPackageInfos</code>, which are all bundled addons above a given host:</p>
+<ul>
+<li><code>hostAndAncestorBundledPackageInfos</code> for lazy engine A includes all non-lazy dependencies of its LCA host &amp; above (in this case, just the project)</li>
+<li><code>hostAndAncestorBundledPackageInfos</code> for lazy engine B includes all non-lazy dependencies of its LCA host &amp; above (in this case, just the project)</li>
+<li><code>hostAndAncestorBundledPackageInfos</code> for lazy engine C includes non-lazy deps of lazy engine B &amp; non-lazy deps of the project (LCA host &amp; above)</li>
+</ul>
+<p>This is intended to mimic the behavior of <code>ancestorHostAddons</code> in <code>ember-engines</code>:
+<a href="https://github.com/ember-engines/ember-engines/blob/master/packages/ember-engines/lib/engine-addon.js#L333">https://github.com/ember-engines/ember-engines/blob/master/packages/ember-engines/lib/engine-addon.js#L333</a></p>
+<p>Unfortunately, we can't easily repurpose the logic in <code>ember-engines</code> since the algorithm has to be different;
+in <code>ember-engines</code> we need access to the actual addon instance, however, this is intended to be used <em>during</em>
+addon instantiation, so we only have access to package-info objects. In having said this, we <em>can</em> repurpose
+the <code>hostPackageInfo</code> to determine the LCA host; see below <code>findLCAHost</code>.</p>
+</div>
+
+      <div class="params">
+        <h4>Parameters:</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>packageInfoForLazyEngine</td>
+              <td><a href="../classes/PackageInfo.html" class="crosslink">PackageInfo</a></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td> </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="return">
+        <h4>Return:</h4>
+        <div>
+          <span class="return-type">hostPackageInfo: PackageInfo, hostAndAncestorBundledPackageInfos: Set<PackageInfo></span>
+          <span class="return-description"><p>}</p>
+</span>
+        </div>
+      </div>
+
+
+</div>
+<div class="method item">
+    <div id="method_instantiateAddons" class="title">
+        <span class="source-link"><a href="../files/lib_models_instantiate-addons.js.html#l12"><code>lib&#x2F;models&#x2F;instantiate-addons.js:12</code></a></span>
+        <h3 class="">
+            public
+            
+            
+            instantiateAddons(parent, project, a)
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>Create instances of a set of "child" addons for a parent addon or project.</p>
+</div>
+
+      <div class="params">
+        <h4>Parameters:</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>parent</td>
+              <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td><p>an Addon or Project that is the direct containing object of the list
+of children defined in addonPackages.</p>
+</td>
+            </tr>
+
+            <tr>
+              <td>project</td>
+              <td><a href="../classes/Project.html" class="crosslink">Project</a></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td><p>the project that contains the parent (so either the addon's project
+if parent is an addon, or the project itself if it is a project). It is possible when
+constructing custom addon instances that the project will actually be undefined--various
+addon tests do this, for example.</p>
+</td>
+            </tr>
+
+            <tr>
+              <td>a</td>
+              <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td><p>map of addon name (including scope) to an AddonInfo with the name, path and
+'pkg' object for that addon's package.json). These are what is turned into addons.</p>
+</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+
+</div>
+  </div>
+
+
+    <div id="methods private">
+        <h2 id="private-methods">Private Methods</h2>
+<div class="method item private">
+    <div id="method__findNearestBundleHost" class="title">
+        <span class="source-link"><a href="../files/lib_models_host-info-cache.js.html#l16"><code>lib&#x2F;models&#x2F;host-info-cache.js:16</code></a></span>
+        <h3 class="">
+            private
+            
+            
+            _findNearestBundleHost(paths): PackageInfo, PackageInfo[]
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>Given a path (calculated as part of <code>getHostAddonInfo</code>), return the correct
+"bundle host". A bundle host is considered the project or lazy engine.</p>
+<p>For example, given the following package structure:</p>
+<pre class="code prettyprint"><code> --Project--
+  /      \
+ /        \
+</code></pre>
+<p>Lazy Engine A  <br>
+Addon A
+|
+|
+Lazy Engine B
+/          <br>
+/            <br>
+Lazy Engine A   Lazy Engine C</p>
+<p>The provided paths for lazy engine A would look like:</p>
+<ul>
+<li>[Project]</li>
+<li>[Project, Addon A, Lazy Engine B]</li>
+</ul>
+<p>For this project structure, this function would return [Project, [Project]]</p>
+<p>Similarly, given the following project structure:</p>
+<pre class="code prettyprint"><code>       --Project--
+        /      \
+       /        \
+Lazy Engine A    \
+     /        Lazy Engine B
+    /               |
+   /                |
+</code></pre>
+<p>Lazy Engine C     Lazy Engine C</p>
+<p>The provided paths for lazy engine C would look like:</p>
+<ul>
+<li>[Project, Lazy Engine A]</li>
+<li>[Project, Lazy Engine B]</li>
+</ul>
+<p>In this case, the host is the project and would also return [Project, [Project]]</p>
+</div>
+
+      <div class="params">
+        <h4>Parameters:</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>paths</td>
+              <td>Array<PackageInfo></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td><p>The found paths to a given bundle host</p>
+</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="return">
+        <h4>Return:</h4>
+        <div>
+          <span class="return-type">PackageInfo, PackageInfo[]</span>
+          <span class="return-description"></span>
+        </div>
+      </div>
+
+
+</div>
+<div class="method item private">
+    <div id="method__getBundledPackageInfos" class="title">
+        <span class="source-link"><a href="../files/lib_models_host-info-cache.js.html#l93"><code>lib&#x2F;models&#x2F;host-info-cache.js:93</code></a></span>
+        <h3 class="">
+            private
+            
+            
+            _getBundledPackageInfos(pkgInfoToStartAt): Set<PackageInfo>
+        </h3>
+    </div>
+
+
+
+    <div class="method-description"><p>Returns a <code>Set</code> of package-info objects that a given bundle host is
+<em>directly</em> responsible for bundling (i.e., it excludes other bundle
+hosts/lazy engines when it encounters these)</p>
+</div>
+
+      <div class="params">
+        <h4>Parameters:</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pkgInfoToStartAt</td>
+              <td><a href="../classes/PackageInfo.html" class="crosslink">PackageInfo</a></td>
+              <td>
+                <ul>
+                  
+                  
+                  
+                </ul>
+              </td>
+              <td> </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="return">
+        <h4>Return:</h4>
+        <div>
+          <span class="return-type">Set<PackageInfo></span>
+          <span class="return-description"></span>
+        </div>
+      </div>
+
+
+</div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+</body>
+</html>

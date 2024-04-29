@@ -1,0 +1,55 @@
+{{!-- breadcrumb-section --}}
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Register</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- end breadcrumb section --}}
+
+{{!-- registration section --}}
+<div class="login-section mt-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4 class="card-title mb-4 text-center">Sign Up</h4>
+                <form {{ on "submit" this.register }}>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" class="form-control" {{ on "change" (fn this.update "email" )
+                            }} placeholder="Enter your email">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="text">Address:</label>
+                        <input type="text" name="text" class="form-control" {{ on "change" (fn this.update "address" )
+                            }} placeholder="Enter your address">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control" {{ on "change" (fn
+                            this.update "password" ) }} placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
+                </form>
+            </div>
+            {{#if this.error}}
+            <div class="alert alert-danger mt-2" role="alert">
+                <strong>{{this.error}}</strong>
+            </div>
+            {{/if}}
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    Already have an account? <LinkTo @route="login">Login Now</LinkTo>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- end registration section --}}

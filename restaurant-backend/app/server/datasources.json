@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "restaurantDB": {
+    "host": "postgres",
+    "port": 5432,
+    "database": "restaurantDB",
+    "password": "password",
+    "name": "restaurantDB",
+    "connector": "postgresql",
+    "user": "postgres"
+  }
+}

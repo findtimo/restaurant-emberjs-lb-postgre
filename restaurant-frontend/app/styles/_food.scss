@@ -1,0 +1,115 @@
+.food-image img {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.food-image img:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+.food-image {
+    padding: 30px;
+    padding-bottom: 0;
+}
+
+.food-image img {
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.food-details {
+    padding: 24px 32px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.food {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.food:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.food {
+    margin-bottom: 30px;
+}
+
+
+.food h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.food-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+p.food-pricing span {
+    font-size: 18px;
+    display: block;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.food-content p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.food-content p.food-pricing {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #051922;
+    line-height: inherit;
+}
+
+.food-form a.cart-btn {
+    margin-bottom: 15px;
+}
+
+.food-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 35px;
+}
+
+.food-content {
+    margin-left: 30px;
+}
+
+.food {
+    -webkit-box-shadow: 0 0 20px #e4e4e4;
+    box-shadow: 0 0 20px #e4e4e4;
+    padding-bottom: 50px;
+    border-radius: 5px;
+}
+
+p.food-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+p.food-price span {
+    display: block;
+    opacity: 0.8;
+    font-size: 15px;
+    font-weight: 400;
+}

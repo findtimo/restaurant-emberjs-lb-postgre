@@ -1,0 +1,68 @@
+{{page-title "Restaurant"}}
+
+{{! The following component displays Ember's default welcome message. }}
+{{!-- <WelcomePage /> --}}
+{{! Feel free to remove this! }}
+
+<body>
+	{{navbar}}
+	{{!-- <div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item">
+                                    <LinkTo @route="home">Home</LinkTo>
+								</li>
+								<li>
+                                    <LinkTo @route="menu">Menu</LinkTo>
+								</li>
+								<li>
+									<div class="header-icons">
+                                    <LinkTo @route="cart">Cart</LinkTo>
+									</div>
+								</li>
+								{{#if this.session.isAuthenticated}}
+								<li>
+									<div class="header-icons" {{on "click" this.logout}}>
+										<LinkTo @route="home">Logout</LinkTo>
+									</div>
+								</li>
+								{{else}}
+								<li>
+									<div class="header-icons">
+										<LinkTo @route="login">Login</LinkTo>
+									</div>
+								</li>
+								{{/if}}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> --}}
+	{{!-- end header --}}
+	
+	{{!-- search area --}}
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{!-- end search area --}}
+    {{outlet}}
+</body>

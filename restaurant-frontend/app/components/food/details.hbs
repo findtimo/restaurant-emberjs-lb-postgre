@@ -1,0 +1,4 @@
+<h3>{{@name}}</h3>
+<p class="food-price">{{@price}}$</p>
+{{!-- <LinkTo class="cart-btn" @route="cart">Add to Cart</LinkTo> --}}
+<a class="cart-btn" {{on "click" this.addToCart}}>Add to Cart</a>

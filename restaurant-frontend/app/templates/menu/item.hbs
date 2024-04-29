@@ -1,0 +1,9 @@
+{{!-- app/templates/menu.hbs --}}
+<h1>Menu</h1>
+<ul>
+  {{#each @model as |menuItem|}}
+    <li>{{menuItem.name}} - {{menuItem.price}}</li>
+  {{/each}}
+</ul>
+
+item {{this.model}} works

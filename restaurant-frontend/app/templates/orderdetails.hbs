@@ -1,0 +1,57 @@
+{{page-title "Order Details"}}
+{{!-- app/templates/menu.hbs --}}
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Order Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="login-section mt-100 mb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="container mt-4">
+                    <div class="order-details">
+                        <h2>Order Details</h2>
+                        {{#if this.model.length}}
+                        <ul>
+                            {{#each this.model as |item|}}
+                            <div class="food p-3 mb-2 bg-light">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="mb-0">{{item.food.name}}</h3>
+                                    <span>${{ item.food.price }}</span>
+                                </div>
+                                    <span>Quantity: {{item.quantity}}</span>
+                            </div>
+                            {{/each}}
+                        </ul>
+                        {{else}}
+                        <p>No details found for this order.</p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                {{!-- {{#if this.model.length}}
+                <ul class="list-unstyled">
+                    {{#each this.model as |order|}}
+                    <li class="food p-3 mb-2 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">{{#link-to "orderdetails" order.id}}Order ID: {{order.id}}{{/link-to}}</h3>
+                            <span>{{format-date order.placeDate}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p>No orders found.</p>
+                {{/if}} --}}
+            </div>
+        </div>
+    </div>
+</div>

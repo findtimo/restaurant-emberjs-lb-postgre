@@ -1,0 +1,15 @@
+{
+    "foods": [{
+        "id": "1",
+        "name": "Mozerella Pizza",
+        "price": 20,
+        "image": "/assets/images/beats-solo-black.png"
+      },
+      {
+        "id": "2",
+        "name": "Pepperoni Pizza",
+        "price": 18,
+        "image": "/assets/images/beats-solo-black.png"
+      }
+    ]
+}
