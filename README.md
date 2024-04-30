@@ -26,6 +26,7 @@ Before setting up the project, ensure you have the following installed:
    docker-compose up
 
 2. **Run the Frontend:**
+   ```bash
    npm i    #navigate to ./restaurant-frontend/
    ember serve    #navigate to ./restaurant-frontend/
 ## Database Models
